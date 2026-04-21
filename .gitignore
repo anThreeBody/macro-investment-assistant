@@ -32,7 +32,6 @@ ENV/
 *.swp
 *.swo
 *~
-.DS_Store
 
 # Logs
 logs/
@@ -42,26 +41,20 @@ logs/
 *.db
 *.sqlite
 *.sqlite3
-data/*.db
-data/*.sqlite
 
-# Data files
+# Data files (keep cache empty)
 data/*.json
 data/*.csv
 data/*.txt
 !data/.gitkeep
-data/gold_price_cache.json
-data/fund_cache.json
 
-# Daily briefs (optional - can be kept for demo)
+# Daily briefs (keep directory empty)
 daily_brief/*.md
 !daily_brief/.gitkeep
-daily_brief/archive/
 
 # Reports and snapshots
 reports/
 snapshots/
-*.txt
 
 # Configuration with secrets
 .env
@@ -87,34 +80,18 @@ htmlcov/
 # pyenv
 .python-version
 
-# Large files
-*.zip
-*.tar.gz
-*.rar
-
 # Temporary files
 tmp/
 temp/
 *.tmp
 
-# API keys and credentials (if any)
+# API keys and credentials
 credentials/
 auth/
 *.pem
 *.crt
 
-# Local development
-local_data/
-dev_data/
-
 # Backup files
 *.bak
 *.backup
 *.old
-
-# Archive directories
-archive/
-
-# Agent workspace specific
-agents/
-references/

@@ -1,0 +1,120 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+data/*.sqlite
+
+# Data files
+data/*.json
+data/*.csv
+data/*.txt
+!data/.gitkeep
+data/gold_price_cache.json
+data/fund_cache.json
+
+# Daily briefs (optional - can be kept for demo)
+daily_brief/*.md
+!daily_brief/.gitkeep
+daily_brief/archive/
+
+# Reports and snapshots
+reports/
+snapshots/
+*.txt
+
+# Configuration with secrets
+.env
+.env.local
+.env.*.local
+config.local.yaml
+*.secret
+*.key
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# API keys and credentials (if any)
+credentials/
+auth/
+*.pem
+*.crt
+
+# Local development
+local_data/
+dev_data/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Archive directories
+archive/
+
+# Agent workspace specific
+agents/
+references/

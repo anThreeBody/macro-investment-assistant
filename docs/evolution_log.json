@@ -1,0 +1,90 @@
+[
+  {
+    "date": "2026-03-24",
+    "version": "V1.0.0",
+    "phase": "Phase 1",
+    "change_type": "feature",
+    "title": "系统初始化",
+    "description": "创建基础架构，实现数据获取、分析、预测核心功能",
+    "impact": "全部模块",
+    "author": "System",
+    "status": "completed"
+  },
+  {
+    "date": "2026-03-25",
+    "version": "V2.0.0",
+    "phase": "Phase 2",
+    "change_type": "feature",
+    "title": "输出层与通知层",
+    "description": "添加简报生成、图表生成、告警通知功能",
+    "impact": "presenters/, notifiers/",
+    "author": "System",
+    "status": "completed"
+  },
+  {
+    "date": "2026-03-26",
+    "version": "V3.0.0",
+    "phase": "Phase 3",
+    "change_type": "feature",
+    "title": "数据源增强",
+    "description": "添加多层级数据源回退机制 (AKShare → Yahoo → Investing → Web → Browser)",
+    "impact": "data_sources/",
+    "author": "System",
+    "status": "completed"
+  },
+  {
+    "date": "2026-03-27",
+    "version": "V4.0.0",
+    "phase": "Phase 4",
+    "change_type": "feature",
+    "title": "时序预测与验证",
+    "description": "添加简单时序预测模型和预测验证机制",
+    "impact": "predictors/, analyzers/accuracy_tracker.py",
+    "author": "System",
+    "status": "completed"
+  },
+  {
+    "date": "2026-03-31",
+    "version": "V5.0.0",
+    "phase": "Phase 5 Stage 1",
+    "change_type": "feature",
+    "title": "黄金日内分析",
+    "description": "添加小时级黄金分析和实时推送功能",
+    "impact": "analyzers/intraday_gold.py, notifiers/realtime_pusher.py",
+    "author": "System",
+    "status": "completed"
+  },
+  {
+    "date": "2026-04-01",
+    "version": "V5.1.0",
+    "phase": "Phase 5 Stage 2",
+    "change_type": "feature",
+    "title": "基金分析升级",
+    "description": "添加5种风险画像和具体买卖时机建议",
+    "impact": "analyzers/fund_recommender.py, analyzers/fund_timing_advisor.py",
+    "author": "System",
+    "status": "completed"
+  },
+  {
+    "date": "2026-04-01",
+    "version": "V5.2.0",
+    "phase": "Phase 5 Stage 3",
+    "change_type": "feature",
+    "title": "股票分析升级",
+    "description": "添加具体买卖建议和详细分析理由",
+    "impact": "analyzers/stock_recommender.py, analyzers/stock_reason_detailer.py",
+    "author": "System",
+    "status": "completed"
+  },
+  {
+    "date": "2026-04-01",
+    "version": "V5.3.0",
+    "phase": "Phase 5 Stage 4",
+    "change_type": "feature",
+    "title": "系统透明化",
+    "description": "添加数据资产看板、准确率看板、进化日志",
+    "impact": "dashboards/",
+    "author": "System",
+    "status": "completed"
+  }
+]

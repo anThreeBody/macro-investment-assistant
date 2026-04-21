@@ -1,0 +1,22 @@
+{
+  "international": {
+    "price": 2350.0,
+    "unit": "USD/oz",
+    "change": 0.0,
+    "change_pct": 0.0
+  },
+  "domestic": {
+    "price": 547.77,
+    "unit": "CNY/g",
+    "change": 0.0,
+    "change_pct": 0.0
+  },
+  "metadata": {
+    "domestic_source": "兜底数据",
+    "international_source": "兜底数据",
+    "exchange_rate": 7.25,
+    "timestamp": "2026-04-02T10:47:44.698463",
+    "method": "fallback",
+    "warning": "数据获取失败，使用参考值"
+  }
+}

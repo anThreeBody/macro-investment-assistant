@@ -1,0 +1,239 @@
+# Macro-Investment-Assistant 配置文件
+# 版本：8.1.0
+
+# ==================== 系统配置 ====================
+system:
+  name: "Macro-Investment-Assistant"
+  version: "8.1.0"
+  environment: "production"  # development / production
+  debug: false
+
+# ==================== 数据源配置 ====================
+data_sources:
+  # 缓存时间（秒）
+  cache_ttl:
+    gold: 60        # 金价：1 分钟
+    fund: 300       # 基金：5 分钟
+    stock: 60       # 股票：1 分钟
+    macro: 300      # 宏观：5 分钟
+    news: 600       # 新闻：10 分钟
+  
+  # 请求配置
+  timeout: 30              # 请求超时（秒）
+  max_retries: 3           # 最大重试次数
+  retry_delay: 2           # 重试间隔（秒）
+  
+  # 降级策略
+  fallback_enabled: true   # 启用降级
+  fallback_delay: 1        # 降级延迟（秒）
+  
+  # 数据源优先级
+  gold:
+    primary: "akshare"
+    fallback:
+      - "yahoo"
+      - "investing"
+      - "browser"
+  
+  macro:
+    primary: "akshare"
+    fallback:
+      - "yahoo"
+      - "investing"
+      - "web_search"
+
+# ==================== 数据验证配置 ====================
+validation:
+  # 价格验证阈值
+  thresholds:
+    gold_price_domestic: [500, 1500]    # 国内金价（元/克）
+    gold_price_intl: [150, 350]         # 国际金价（美元/盎司）
+    fund_nav: [0.1, 100]                # 基金净值
+    stock_price: [0.1, 10000]           # 股票价格
+  
+  # 宏观数据验证阈值
+  macro:
+    dxy: [50, 150]          # 美元指数
+    vix: [10, 100]          # 恐慌指数
+    oil: [50, 150]          # 原油价格（美元/桶）
+    treasury: [1, 10]       # 美债收益率（%）
+  
+  # 数据质量评分权重
+  quality_weights:
+    timeliness: 0.4    # 时效性权重
+    accuracy: 0.4      # 准确性权重
+    completeness: 0.2  # 完整性权重
+
+# ==================== 预测配置 ====================
+prediction:
+  # 因子权重（总和=1.0）
+  weights:
+    technical: 0.255      # 技术分析 25.5%
+    sentiment: 0.2125     # 情绪分析 21.25%
+    macro: 0.2125         # 宏观分析 21.25%
+    momentum: 0.17        # 动量分析 17%
+    time_series: 0.15     # 时间序列 15%
+  
+  # 置信度阈值
+  confidence_thresholds:
+    high: 0.8     # 高置信度：>80%
+    medium: 0.6   # 中置信度：60-80%
+    low: 0.4      # 低置信度：40-60%
+  
+  # 交易信号阈值
+  signal_thresholds:
+    buy: 0.65      # 买入信号：综合得分>65%
+    sell: 0.35     # 卖出信号：综合得分<35%
+    hold: 0.5      # 持有信号：35-65%
+  
+  # 预测时间周期
+  time_horizons:
+    short: 1      # 短期：1 天
+    medium: 7     # 中期：7 天
+    long: 30      # 长期：30 天
+
+# ==================== 分析器配置 ====================
+analyzers:
+  # 技术分析器
+  technical:
+    enabled: true
+    indicators:
+      - "RSI"
+      - "MACD"
+      - "MA5"
+      - "MA10"
+      - "MA20"
+      - "BOLL"
+    rsi_period: 14
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+  
+  # 情绪分析器
+  sentiment:
+    enabled: true
+    news_limit: 20          # 分析新闻数量
+    positive_threshold: 0.6 # 正面阈值
+    negative_threshold: 0.4 # 负面阈值
+  
+  # 宏观分析器
+  macro:
+    enabled: true
+    indicators:
+      - "DXY"
+      - "VIX"
+      - "OIL"
+      - "TREASURY"
+  
+  # 动量分析器
+  momentum:
+    enabled: true
+    lookback_period: 20     # 回看周期（天）
+
+# ==================== 输出配置 ====================
+output:
+  # 目录配置
+  brief_dir: "daily_brief"
+  chart_dir: "charts"
+  data_dir: "data"
+  db_dir: "data/db"
+  
+  # 日志配置
+  log_dir: "logs"
+  log_level: "INFO"  # DEBUG / INFO / WARNING / ERROR
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_max_bytes: 10485760    # 10MB
+  log_backup_count: 5        # 保留 5 个备份
+  
+  # 图表配置
+  chart:
+    format: "png"
+    dpi: 150
+    figsize: [12, 6]
+    style: "seaborn-v0_8"
+  
+  # 简报配置
+  brief:
+    format: "markdown"
+    include_charts: true
+    include_prediction: true
+    include_risk_warning: true
+
+# ==================== 告警配置 ====================
+alerts:
+  enabled: true
+  
+  # 价格突破告警
+  price_breakout:
+    enabled: true
+    threshold_percent: 3.0  # 突破 3% 告警
+  
+  # 低置信度告警
+  low_confidence:
+    enabled: true
+    threshold: 0.4  # 置信度<40% 告警
+  
+  # 系统错误告警
+  system_error:
+    enabled: true
+  
+  # 通知方式（待实现）
+  notifications:
+    feishu_webhook: ""  # 飞书 webhook URL
+    email: ""           # 邮箱地址
+    wechat: ""          # 微信（待实现）
+
+# ==================== 数据库配置 ====================
+database:
+  type: "sqlite"
+  path: "data/db"
+  
+  # 数据库文件
+  files:
+    gold: "gold_prices.db"
+    fund: "fund_data.db"
+    stock: "stock_data.db"
+    macro: "macro_data.db"
+    news: "news_sentiment.db"
+    predictions: "predictions.db"
+  
+  # 连接配置
+  pool_size: 5
+  timeout: 30
+
+# ==================== 定时任务配置 ====================
+scheduler:
+  enabled: true
+  
+  # 每日简报
+  daily_brief:
+    enabled: true
+    time: "08:00"        # 每天早上 8 点
+    timezone: "Asia/Shanghai"
+  
+  # 预测验证
+  prediction_verify:
+    enabled: true
+    time: "18:00"        # 每天晚上 6 点
+    timezone: "Asia/Shanghai"
+  
+  # 数据清理
+  cleanup:
+    enabled: true
+    time: "02:00"        # 凌晨 2 点
+    timezone: "Asia/Shanghai"
+    keep_days: 365       # 保留 365 天数据
+
+# ==================== 性能配置 ====================
+performance:
+  # 并发配置
+  max_workers: 4         # 最大工作线程
+  use_async: false       # 是否使用异步
+  
+  # 缓存配置
+  cache_enabled: true
+  cache_max_size: 1000   # 最大缓存条目
+  
+  # 监控配置
+  enable_profiling: false  # 性能分析
+  slow_threshold: 5.0      # 慢查询阈值（秒）

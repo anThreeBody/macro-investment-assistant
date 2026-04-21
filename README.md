@@ -4,193 +4,193 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-**智能宏观投资分析系统 | AI-Powered Macro Investment Analysis Platform**
+**AI-Powered Macro Investment Analysis Platform**
 
-基于多因子模型和宏观叙事分析的智能化投资决策辅助系统，提供每日投资简报、市场情绪分析、预测验证等功能。
-
----
-
-## 🌟 特性亮点
-
-### 核心功能
-
-- 📈 **多因子预测模型** - 整合宏观经济、市场情绪、资金流向等多维度数据
-- 📰 **宏观叙事分析** - 自动识别政策类型，推导资产价格影响
-- 📊 **每日投资简报** - 自动生成包含金价、基金、股票、新闻的综合报告
-- 🔍 **预测验证系统** - 持续跟踪预测准确率，7/30/90 天统计分析
-- 😱 **恐慌贪婪指数** - 5 指标加权综合市场情绪
-- 📅 **重大事件日历** - 未来 7 天重要经济事件提醒
-- 🤖 **API 服务** - RESTful API 支持第三方集成
-
-### 数据源
-
-| 类别 | 数据源 | 更新频率 |
-|------|--------|----------|
-| 金价 | 东方财富、金投网 | 实时 |
-| 基金 | AKShare | 每日 |
-| 股票 | 东方财富 | 实时 |
-| 新闻 | 腾讯、百度、新浪、东方财富、和讯 | 每小时 |
-| 宏观数据 | 美联储、统计局 | 按发布 |
+An intelligent investment decision support system based on multi-factor models and macro narrative analysis, providing daily investment briefs, market sentiment analysis, and prediction verification.
 
 ---
 
-## 🚀 快速开始
+## 🌟 Features
 
-### 环境要求
+### Core Capabilities
+
+- 📈 **Multi-Factor Prediction Model** - Integrates macroeconomics, market sentiment, capital flows, and more
+- 📰 **Macro Narrative Analysis** - Automatically identifies policy types and derives asset price implications
+- 📊 **Daily Investment Brief** - Comprehensive reports including gold prices, funds, stocks, and news
+- 🔍 **Prediction Verification** - Continuous tracking with 7/30/90-day accuracy statistics
+- 😱 **Fear & Greed Index** - 5-indicator weighted market sentiment composite
+- 📅 **Event Calendar** - Important economic events for the next 7 days
+- 🤖 **RESTful API** - Full API support for third-party integration
+
+### Data Sources
+
+| Category | Sources | Update Frequency |
+|----------|---------|------------------|
+| Gold Prices | East Money, Jin10 | Real-time |
+| Fund NAV | AKShare | Daily |
+| Stock Market | East Money | Real-time |
+| News | Tencent, Baidu, Sina, East Money, Hexun | Hourly |
+| Macro Data | Federal Reserve, NBS | As released |
+
+---
+
+## 🚀 Quick Start
+
+### Requirements
 
 - Python 3.9+
 - macOS / Linux / Windows
-- 网络访问（获取实时数据）
+- Internet access (for real-time data)
 
-### 安装步骤
+### Installation
 
 ```bash
-# 1. Clone 项目
-git clone https://github.com/YOUR_USERNAME/macro-investment-assistant.git
+# 1. Clone the repository
+git clone https://github.com/anThreeBody/macro-investment-assistant.git
 cd macro-investment-assistant
 
-# 2. 创建虚拟环境
+# 2. Create virtual environment
 python3 -m venv venv
 source venv/bin/activate  # Linux/macOS
-# 或
+# or
 venv\Scripts\activate  # Windows
 
-# 3. 安装依赖
+# 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. 安装 Playwright 浏览器
+# 4. Install Playwright browser
 playwright install chromium
 
-# 5. 测试运行
+# 5. Test installation
 python3 main.py --help
 ```
 
-### 生成每日简报
+### Generate Daily Brief
 
 ```bash
-# 一键生成每日简报
+# One-click daily brief generation
 ./run_daily.sh
 
-# 或手动运行
+# Or run manually
 python3 main.py brief
 ```
 
-### 查看 API 文档
+### Start API Server
 
 ```bash
-# 启动 API 服务
+# Start API service
 ./api/start.sh
 
-# 访问文档
+# Access API docs
 open http://localhost:8000/docs
 ```
 
 ---
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```
 macro-investment-assistant/
-├── main.py                 # 主入口
-├── run_daily.sh           # 每日运行脚本
-├── requirements.txt       # Python 依赖
-├── config.yaml           # 配置文件
+├── main.py                 # Main entry point
+├── run_daily.sh           # Daily execution script
+├── requirements.txt       # Python dependencies
+├── config.yaml           # Configuration file
 │
-├── analyzers/            # 分析模块
-│   ├── macro.py          # 宏观分析
-│   ├── macro_narrative.py # 宏观叙事分析
-│   ├── fear_greed_index.py # 恐慌贪婪指数
+├── analyzers/            # Analysis modules
+│   ├── macro.py          # Macro analysis
+│   ├── macro_narrative.py # Macro narrative analysis
+│   ├── fear_greed_index.py # Fear & Greed Index
 │   └── ...
 │
-├── data_sources/         # 数据源模块
-│   ├── gold_source.py    # 金价数据
-│   ├── fund_source.py    # 基金数据
-│   ├── news_source.py    # 新闻数据
+├── data_sources/         # Data source modules
+│   ├── gold_source.py    # Gold price data
+│   ├── fund_source.py    # Fund data
+│   ├── news_source.py    # News data
 │   └── ...
 │
-├── predictors/           # 预测模块
-│   ├── multi_factor.py   # 多因子预测
-│   ├── validator.py      # 预测验证
+├── predictors/           # Prediction modules
+│   ├── multi_factor.py   # Multi-factor prediction
+│   ├── validator.py      # Prediction validation
 │   └── ...
 │
-├── presenters/           # 展示模块
-│   ├── brief_generator_enhanced.py # 简报生成
+├── presenters/           # Presentation modules
+│   ├── brief_generator_enhanced.py # Brief generation
 │   └── ...
 │
-├── api/                  # API 服务
-│   ├── main.py          # FastAPI 应用
+├── api/                  # API service
+│   ├── main.py          # FastAPI application
 │   └── ...
 │
-├── web/                  # Web 仪表盘
+├── web/                  # Web dashboard
 │   └── dashboard.html
 │
-├── docs/                 # 文档
-│   ├── INDEX.md         # 文档索引
-│   ├── CHANGELOG.md     # 更新日志
+├── docs/                 # Documentation
+│   ├── INDEX.md         # Documentation index
+│   ├── CHANGELOG.md     # Changelog
 │   └── ...
 │
-└── tests/               # 测试用例
+└── tests/               # Test cases
 ```
 
 ---
 
-## 📊 系统版本
+## 📊 System Version
 
-**当前版本**: V8.4.5 (2026-04-15)
+**Current Version**: V8.4.5 (2026-04-15)
 
-### 最新版本变更
+### Latest Changes
 
-#### V8.4.5 - 预测逻辑优化版
+#### V8.4.5 - Prediction Logic Optimization
 
-**核心变更**:
-- ✅ 取消震荡预测，只保留上涨/下跌
-- ✅ 方向阈值从 ±1% 调整为 ±0.5%
-- ✅ 预测区间从 ±2% 缩小到 ±1%
-- ✅ 基金净值智能列名检测
-- ✅ 北向资金实时获取（不再硬编码）
+**Key Changes**:
+- ✅ Removed sideways prediction, only up/down directions
+- ✅ Direction threshold adjusted from ±1% to ±0.5%
+- ✅ Prediction interval reduced from ±2% to ±1%
+- ✅ Smart fund NAV column detection
+- ✅ Real-time northbound capital flow (no longer hardcoded)
 
-**效果对比**:
+**Impact**:
 ```
-预测方向：上涨/下跌/震荡 → 上涨/下跌（更明确）
-预测区间：±2% (4.2% 跨度) → ±1% (2.0% 跨度)（更精确）
-基金净值：多只 0.0 → 全部有效（更可靠）
-北向资金：固定 35.8 亿 → 实时获取（更真实）
+Direction: Up/Down/Sideways → Up/Down (clearer)
+Interval: ±2% (4.2% span) → ±1% (2.0% span) (more precise)
+Fund NAV: Multiple 0.0 → All valid (more reliable)
+Northbound: Fixed 35.8B → Real-time fetch (more accurate)
 ```
 
-[查看完整版本历史 →](docs/VERSION_HISTORY.md)
+[View Full Version History →](docs/VERSION_HISTORY.md)
 
 ---
 
-## 🔧 使用指南
+## 🔧 Usage Guide
 
-### 命令行接口
+### Command Line Interface
 
 ```bash
-# 查看帮助
+# View help
 python3 main.py --help
 
-# 生成每日简报
+# Generate daily brief
 python3 main.py brief
 
-# 获取金价
+# Get gold prices
 python3 main.py gold
 
-# 生成预测
+# Generate prediction
 python3 main.py predict
 
-# 验证预测
+# Verify predictions
 python3 main.py verify
 
-# 启动 API
+# Start API server
 python3 main.py api
 ```
 
-### 配置选项
+### Configuration
 
-编辑 `config.yaml` 配置文件：
+Edit `config.yaml`:
 
 ```yaml
-# 数据源配置
+# Data source configuration
 data_sources:
   gold:
     primary: "eastmoney"
@@ -204,12 +204,12 @@ data_sources:
       - "eastmoney"
       - "hexun"
 
-# 预测配置
+# Prediction configuration
 prediction:
   direction_threshold: 0.005  # ±0.5%
   prediction_interval: 0.01   # ±1%
   
-# 告警配置
+# Alert configuration
 alerts:
   enabled: true
   price_change_threshold: 2.0  # 2%
@@ -217,104 +217,104 @@ alerts:
 
 ---
 
-## 📈 系统架构
+## 📈 System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    用户界面层                              │
+│                    User Interface Layer                  │
 │  CLI  │  Web Dashboard  │  API  │  Daily Brief          │
 └─────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────┐
-│                    业务逻辑层                              │
-│  预测引擎  │  分析器  │  验证器  │  告警系统              │
+│                    Business Logic Layer                  │
+│  Prediction Engine  │  Analyzers  │  Validator  │  Alerts│
 └─────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────┐
-│                    数据源层                                │
-│  金价  │  基金  │  股票  │  新闻  │  宏观数据            │
+│                    Data Source Layer                     │
+│  Gold  │  Funds  │  Stocks  │  News  │  Macro Data      │
 └─────────────────────────────────────────────────────────┘
                             ↓
 ┌─────────────────────────────────────────────────────────┐
-│                    数据存储层                              │
+│                    Data Storage Layer                    │
 │  SQLite  │  JSON Cache  │  Logs                         │
 └─────────────────────────────────────────────────────────┘
 ```
 
-[查看完整架构文档 →](docs/ARCHITECTURE.md)
+[View Full Architecture →](docs/ARCHITECTURE.md)
 
 ---
 
-## 🧪 测试
+## 🧪 Testing
 
 ```bash
-# 运行所有测试
+# Run all tests
 python3 -m pytest tests/
 
-# 运行特定测试
+# Run specific test
 python3 -m pytest tests/test_gold_source.py
 
-# 生成覆盖率报告
+# Generate coverage report
 python3 -m pytest --cov=. tests/
 ```
 
 ---
 
-## 📚 文档
+## 📚 Documentation
 
-| 文档 | 描述 |
-|------|------|
-| [README.md](README.md) | 快速开始 |
-| [docs/INDEX.md](docs/INDEX.md) | 完整文档索引 |
-| [docs/CHANGELOG.md](docs/CHANGELOG.md) | 更新日志 |
-| [docs/VERSION_HISTORY.md](docs/VERSION_HISTORY.md) | 版本历史 |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 系统架构 |
-| [docs/CONTRIBUTING.md](CONTRIBUTING.md) | 贡献指南 |
-| [api/API_GUIDE.md](api/API_GUIDE.md) | API 文档 |
+| Document | Description |
+|----------|-------------|
+| [README.md](README.md) | Quick start (English) |
+| [README_ZH.md](README_ZH.md) | 快速开始（中文） |
+| [docs/INDEX.md](docs/INDEX.md) | Complete documentation index |
+| [docs/CHANGELOG.md](docs/CHANGELOG.md) | Changelog |
+| [docs/VERSION_HISTORY.md](docs/VERSION_HISTORY.md) | Version history |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines |
+| [api/API_GUIDE.md](api/API_GUIDE.md) | API documentation |
 
 ---
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎贡献！请查看 [贡献指南](CONTRIBUTING.md) 了解如何参与项目开发。
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to get involved.
 
-### 贡献者
+### Contributors
 
-<!-- 这里会自动显示贡献者头像 -->
 <!-- readme: contributors -start -->
 <!-- readme: contributors -end -->
 
 ---
 
-## 📄 许可证
+## 📄 License
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
----
-
-## 📞 联系方式
-
-- 📧 Email: [待添加]
-- 💬 Issues: [GitHub Issues](https://github.com/YOUR_USERNAME/macro-investment-assistant/issues)
-- 📖 Wiki: [项目 Wiki](https://github.com/YOUR_USERNAME/macro-investment-assistant/wiki)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 致谢
+## 📞 Contact
 
-感谢以下开源项目：
+- 📧 Email: [Coming soon]
+- 💬 Issues: [GitHub Issues](https://github.com/anThreeBody/macro-investment-assistant/issues)
+- 📖 Wiki: [Project Wiki](https://github.com/anThreeBody/macro-investment-assistant/wiki)
 
-- [FastAPI](https://fastapi.tiangolo.com/) - API 框架
-- [Playwright](https://playwright.dev/) - 浏览器自动化
-- [AKShare](https://akshare.akfamily.xyz/) - 金融数据接口
-- [Matplotlib](https://matplotlib.org/) - 图表生成
+---
+
+## 🙏 Acknowledgments
+
+Thanks to these open source projects:
+
+- [FastAPI](https://fastapi.tiangolo.com/) - API framework
+- [Playwright](https://playwright.dev/) - Browser automation
+- [AKShare](https://akshare.akfamily.xyz/) - Financial data API
+- [Matplotlib](https://matplotlib.org/) - Chart generation
 
 ---
 
 <div align="center">
 
-**如果这个项目对您有帮助，请给个 ⭐ Star 支持一下！**
+**If you find this project helpful, please give it a ⭐ Star!**
 
-[↑ 返回顶部](#-macro-investment-assistant)
+[↑ Back to top](#-macro-investment-assistant)
 
 </div>

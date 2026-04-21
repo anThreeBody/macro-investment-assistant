@@ -2,7 +2,7 @@
 # 国内黄金价格小时级采集定时任务
 # 每小时运行一次
 
-cd ~//workspaces/YOUR_WORKSPACEH/skills/Macro-Investment-Assistant
+cd /Users/chenmengke/Code/macro-investment-assistant
 
 # 采集数据（使用v2.0稳定版）
 python3 scripts/gold_collector_v2.py >> logs/gold_collector_v2.log 2>&1

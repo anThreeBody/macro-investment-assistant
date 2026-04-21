@@ -2,7 +2,7 @@
 # 黄金智能监控系统 - 每小时运行
 # 整合：数据采集 + 实时分析 + 买卖点告警
 
-cd ~//workspaces/YOUR_WORKSPACEH/skills/Macro-Investment-Assistant
+cd /Users/chenmengke/Code/macro-investment-assistant
 
 LOG_FILE="logs/cron_$(date '+%Y%m%d').log"
 
